@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    #root {
+        height: 100vh;
+
+        display: grid;
+        place-items: center;
+    }
+}

@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
+import { Header } from './components/Header';
+import { Card } from './components/Card';
 
-interface Movie {
+export interface Movie {
   id: number;
   title: string;
   overview: string;
@@ -26,6 +28,7 @@ export function App() {
         const moviesWithDetails = await Promise.all(results.map(async (movie) => {
           const detailsResponse = await fetch(`https://api.themoviedb.org/3/movie/${movie.id}?api_key=${API_KEY}&append_to_response=videos`);
           const detailsData = await detailsResponse.json();
+          
           const movieWithDuration: Movie = {
             ...movie,
             duration: detailsData.runtime,
@@ -41,7 +44,7 @@ export function App() {
     }
 
     getMovies();
-  }, []);
+  }, [API_KEY]);
 
   const moviesWithTrailers = movies.map((movie) => ({
     ...movie,
@@ -49,29 +52,19 @@ export function App() {
   }));
 
   return (
-    <div>
-      <h1 className='bg-black text-white'>Recommended Movies</h1>
-      <ul>
-        {moviesWithTrailers.map((movie) => (
-          <li key={movie.id}>
-            <h2>{movie.title}</h2>
-            <p>Duration: {movie.duration} minutes</p>
-            {movie.videos.length > 0 && (
-              <div>
-                <p>{movie.videos[0]?.name}</p>
-                <a
-                  href={`https://www.youtube.com/watch?v=${movie.videos[0]?.key}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Assistir ao Trailer
-                </a>
-              </div>
-            )}
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
+    <main className='py-16 bg-darkGray shadow-main rounded-2xl border-[6px] border-[#8323FF] w-full max-w-[846px]'>
+      <div className='max-w-[654px] w-full mx-auto flex flex-col gap-8'>
+        <Header />
+
+        <div className='flex items-center gap-9 flex-wrap'>
+          {
+            moviesWithTrailers.map((movie: Movie) => {
+              return <Card movie={movie} />
+            })
+          }
+        </div>
+      </div>
+    </main>
+  )
 }
 

@@ -3,9 +3,13 @@
 @tailwind utilities;
 
 @layer base {
+    body {
+        background: linear-gradient(90deg, #9F55FF 0%, #FF46B9 100%);
+        font-family: 'Outfit', sans-serif;
+    }
+
     #root {
         height: 100vh;
-
         display: grid;
         place-items: center;
     }

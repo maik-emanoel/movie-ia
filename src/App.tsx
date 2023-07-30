@@ -17,6 +17,8 @@ export interface Movie {
 export function App() {
   const API_KEY = import.meta.env.VITE_API_KEY;
   const [movies, setMovies] = useState<Movie[]>([]);
+  const [currentPage, setCurrentPage] = useState<number>(1)
+  const moviesPerPage = 3
 
   useEffect(() => {
     async function getMovies() {
@@ -51,15 +53,23 @@ export function App() {
     videos: movie.videos?.filter((video) => video.type === "Trailer") || [],
   }));
 
+  function handleNextMovies() {
+    if((currentPage * moviesPerPage) < moviesWithTrailers.length) {
+      setCurrentPage(prevState => prevState + 1)
+    } else {
+      setCurrentPage(1)
+    }
+  }
+
   return (
     <main className='py-16 bg-darkGray shadow-main rounded-2xl border-[6px] border-[#8323FF] w-full max-w-[846px]'>
       <div className='max-w-[654px] w-full mx-auto flex flex-col gap-8'>
-        <Header />
+        <Header handleNextMovies={handleNextMovies} />
 
         <div className='flex items-center gap-9 flex-wrap'>
           {
-            moviesWithTrailers.map((movie: Movie) => {
-              return <Card movie={movie} />
+            moviesWithTrailers.slice((currentPage - 1) * moviesPerPage, currentPage * moviesPerPage).map((movie: Movie) => {
+              return <Card movie={movie} key={movie.id} />
             })
           }
         </div>

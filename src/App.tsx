@@ -19,6 +19,7 @@ export function App() {
   const [movies, setMovies] = useState<Movie[]>([]);
   const [currentPage, setCurrentPage] = useState<number>(1)
   const moviesPerPage = 3
+  const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
     async function getMovies() {
@@ -54,17 +55,22 @@ export function App() {
   }));
 
   function handleNextMovies() {
-    if((currentPage * moviesPerPage) < moviesWithTrailers.length) {
-      setCurrentPage(prevState => prevState + 1)
-    } else {
-      setCurrentPage(1)
-    }
+    setIsLoading(true)
+    setTimeout(() => {
+      if((currentPage * moviesPerPage) < moviesWithTrailers.length) {
+        setCurrentPage(prevState => prevState + 1)
+      } else {
+        setCurrentPage(1)
+      }
+
+      setIsLoading(false)
+    }, 1700)
   }
 
   return (
     <main className='py-16 bg-darkGray shadow-main rounded-2xl border-[6px] border-[#8323FF] w-full max-w-[846px]'>
       <div className='max-w-[654px] w-full mx-auto flex flex-col gap-8'>
-        <Header handleNextMovies={handleNextMovies} />
+        <Header handleNextMovies={handleNextMovies} isLoading={isLoading} />
 
         <div className='flex items-center gap-9 flex-wrap'>
           {

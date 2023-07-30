@@ -8,7 +8,7 @@ interface CardProps {
 
 export function Card({ movie }: CardProps) {
   return (
-    <div className="w-[194px] flex flex-col">
+    <div className="w-[194px] flex flex-col animate-bounceIn">
       <header className="flex items-center justify-between gap-1 h-10">
         <span className="text-white text-xl leading-5 font-medium whitespace-nowrap text-ellipsis overflow-hidden">
           {movie.title}
@@ -41,9 +41,9 @@ export function Card({ movie }: CardProps) {
         <a
           href={`https://www.youtube.com/watch?v=${movie.videos[0]?.key}`}
           target="_blank"
-          className="mt-2 flex items-center justify-center gap-2 bg-normalGray h-11 text-white leading-5 rounded"
+          className="mt-2 flex items-center justify-center gap-2 bg-normalGray h-11 text-white leading-5 rounded transition-all duration-300 hover:bg-mediumGray"
         >
-          <img src={play} alt="Logo de play" />
+          <img src={play} alt="Ícone de play" />
           <span>Assistir trailer</span>
         </a>
       )}

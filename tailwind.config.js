@@ -20,6 +20,37 @@ export default {
       },
       dropShadow: {
         star: '0px 0px 14.407779693603516px rgba(254, 234, 53, 0.25)'
+      },
+      animation: {
+        bounceIn: 'bounceIn .9s forwards'
+      },
+      keyframes: {
+        bounceIn: {
+          '0%, 20%, 40%, 60%, 80%, 100%': {
+            animationTimingFunction: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)',
+          },
+          '0%': {
+            opacity: '0',
+            transform: 'scale(.3)',
+          },
+          '20%': {
+            transform: 'scale(1.1)',
+          },
+          '40%': {
+            transform: 'scale(.9)',
+          },
+          '60%': {
+            opacity: '1',
+            transform: 'scale(1.03)',
+          },
+          '80%': {
+            transform: 'scale(.97)',
+          },
+          '100%': {
+            opacity: '1',
+            transform: 'scale(1)',
+          },
+        },
       }
     },
   },

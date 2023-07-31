@@ -6,6 +6,7 @@
     body {
         background: linear-gradient(90deg, #9F55FF 0%, #FF46B9 100%);
         font-family: 'Outfit', sans-serif;
+        -webkit-tap-highlight-color: transparent;
     }
 
     #root {

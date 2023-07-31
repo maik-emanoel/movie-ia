@@ -10,7 +10,7 @@ export interface Movie {
   release_date: string;
   popularity: number;
   vote_average: number;
-  duration?: number;
+  duration: number;
   videos?: { key: string; name: string; type: string }[];
 }
 
@@ -25,7 +25,7 @@ export function App() {
     async function getMovies() {
       try {
         const response = await fetch(
-          `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}`
+          `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=pt-BR`
         );
         const data = await response.json();
         const results: Movie[] = data.results;
@@ -74,12 +74,12 @@ export function App() {
   }
 
   return (
-    <main className="bg-borderGradient w-full max-w-[846px] p-1 rounded-2xl">
-      <div className="py-16 bg-darkGray shadow-main rounded-xl">
-        <div className="max-w-[654px] w-full mx-auto flex flex-col gap-8">
+    <main className="bg-borderGradient w-[90%] max-w-[846px] p-1 rounded-2xl shadow-main mx-auto my-8 sm:bg-none sm:shadow-none sm:w-full sm:h-full sm:p-0">
+      <div className="py-16 bg-darkGray rounded-xl px-6 sm:rounded-none sm:h-full">
+        <div className="max-w-[654px] w-full h-full mx-auto flex flex-col gap-8">
           <Header handleNextMovies={handleNextMovies} isLoading={isLoading} />
 
-          <div className="flex items-center gap-9 flex-wrap">
+          <div className="flex items-center gap-9 flex-wrap md:grid md:grid-cols-[repeat(auto-fit,minmax(150px,1fr))] md:justify-items-center sm:grid-cols-2">
             {moviesWithTrailers
               .slice(
                 (currentPage - 1) * moviesPerPage,

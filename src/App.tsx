@@ -74,7 +74,7 @@ export function App() {
   }
 
   return (
-    <main className="bg-borderGradient w-[90%] max-w-[846px] p-1 rounded-2xl shadow-main mx-auto my-8 sm:bg-none sm:shadow-none sm:w-full sm:h-full sm:p-0">
+    <main className="bg-borderGradient w-[90%] max-w-[846px] p-1 rounded-2xl shadow-main mx-auto my-8 overflow-x-hidden sm:bg-none sm:shadow-none sm:w-full sm:h-full sm:p-0 sm:rounded-none">
       <div className="py-16 bg-darkGray rounded-xl px-6 sm:rounded-none sm:h-full">
         <div className="max-w-[654px] w-full h-full mx-auto flex flex-col gap-8">
           <Header handleNextMovies={handleNextMovies} isLoading={isLoading} />

@@ -1,27 +1,32 @@
-# React + TypeScript + Vite
+<h1 align="center"> Movie - IA | BoraCodar#30 </h1>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![preview](./.github/preview.png)
 
-Currently, two official plugins are available:
+[Clique aqui para acessar](https://movie-ia.vercel.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Tecnologias
 
-## Expanding the ESLint configuration
+Esse projeto foi desenvolvido com as seguintes tecnologias:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- [React.js](https://react.dev/)
+- [Typescript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [TMDb API](https://developer.themoviedb.org/docs)
+- Git and GitHub
 
-- Configure the top-level `parserOptions` property like this:
+## 💻 Projeto
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+O projeto "Movie - IA" é uma interface que simula a geração de filmes recomendados por IA (Inteligência Artificial). <br>
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Projeto construído a partir do layout proposto no desafio [#BoraCodar30](https://boracodar.dev/) realizado pela [Rocketseat](https://rocketseat.com.br).
+Após o desenvolvimento do projeto inicial, adicionei novas features, tais quais:
+
+- Layout responsivo (Adaptado para telas menores);
+- Dados dinâmicos;
+- Efeitos hover;
+- Animação de carregamento/entrada;
+- Entre outras pequenas modificações.
+
+## 🔖 Layout
+
+Você pode visualizar o layout do projeto proposto através [DESSE LINK](https://www.figma.com/community/file/1266028958590001589). É necessário ter conta no [Figma](https://figma.com) para acessá-lo.

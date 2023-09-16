@@ -29,7 +29,7 @@ export function Card({ movie }: CardProps) {
       <img
         src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
         alt={movie.title}
-        className="h-72 rounded-lg mt-4 object-cover flex-shrink-0 md:h-full md:max-h-[300px]"
+        className="h-72 rounded-lg mt-4 object-cover flex-shrink-0 md:max-h-[300px]"
       />
 
       <div className="mt-2 text-lightGray flex items-center justify-between">

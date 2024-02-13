@@ -22,7 +22,7 @@ export function Card({ movie }: CardProps) {
         </span>
         <div className="flex items-center gap-1 text-[#FEEA35] font-semibold">
           <Star color="#FEEA35" weight="fill" className="drop-shadow-star" />
-          <span>{movie.vote_average}</span>
+          <span>{movie.vote_average.toFixed(1)}</span>
         </div>
       </header>
 
